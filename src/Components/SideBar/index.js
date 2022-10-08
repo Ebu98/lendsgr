@@ -155,7 +155,7 @@ const Sidebar = () => {
           return (
             <div
               key={i}
-              className={`link-items ${text === "My profile" ? "active" : ""}`}
+              className="link-items "
             >
               <Icon />
               <p>{text}</p>
@@ -169,7 +169,7 @@ const Sidebar = () => {
           return (
             <div
               key={i}
-              className={`link-items ${text === "My profile" ? "active" : ""}`}
+              className="link-items "
             >
               <Icon />
               <p>{text}</p>
@@ -183,7 +183,7 @@ const Sidebar = () => {
           return (
             <div
               key={i}
-              className={`link-items ${text === "My profile" ? "active" : ""}`}
+              className="link-items "
             >
               <Icon />
               <p>{text}</p>

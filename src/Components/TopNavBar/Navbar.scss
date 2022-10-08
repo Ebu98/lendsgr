@@ -1,8 +1,13 @@
 .top-nav {
     display: flex;
     align-items: center;
+    position: absolute;
     justify-content: space-between;
     height: 100px;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
     padding: 0 135px 0 76px;
     background: #FFFFFF;
     box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);

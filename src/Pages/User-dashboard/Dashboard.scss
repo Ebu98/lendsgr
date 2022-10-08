@@ -1,0 +1,16 @@
+.layout {
+    height: 1080px;
+    display: flex;
+    position: relative;
+
+    
+    .main-content {
+        width: calc(100% - 435px);
+
+        // .main-hero{
+        //     margin: 80px;
+        // }
+
+    }
+    
+}

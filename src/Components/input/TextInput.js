@@ -9,7 +9,7 @@ const TextInput = ({ label, imgSrc, error, name, ...rest }) => {
         <img src={imgSrc} alt="" />
         <input type="text" name={name} {...rest} />
       </div>
-      {error[name] && <p className="error">{error[name]}</p>}
+      {/* {error[name] && <p className="error">{error[name]}</p>} */}
     </div>
   );
 };

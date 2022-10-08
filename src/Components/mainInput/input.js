@@ -1,59 +1,74 @@
-import React from 'react'
-import Select from '../input/select'
-import TextInput from '../input/TextInput'
+import React, { useState } from "react";
+import Select from "../input/select";
+import TextInput from "../input/TextInput";
+import shop from "../../assests/image/shop.png";
+import './main.scss'
 
 
 const Input = () => {
+    
+  const [value, setValue] = useState({
+    username: "",
+    email: "",
+    date: "",
+    phonenumber: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValue(prevValue => ({ 
+        ...prevValue,
+         [name]: value }));
+  };
+
+  const options = [
+    { value: "0", label: "Male" },
+    { value: "1", label: "Female" },
+  ];
+
   return (
-    <div>
-        <h1>Haelkjmopnf</h1>
-        <div>
-              <Select
-                label="Organization"
-                placeholder="Select"
-                // options={option}
-              />
-            </div>
-        <TextInput
-              name="username"
-              label="Username"
-            //   imgSrc={user}
-            //   value={inputs.accountName}
-              placeholder="User"
-            //   onChange={onChange}
-            />
-            <TextInput
-              name="email"
-              label="Email"
-            //   imgSrc={user}
-            //   value={inputs.accountName}
-              placeholder="Email"
-            //   onChange={onChange}
-            />
-            <TextInput
-              name="date"
-              label="Date"
-            //   imgSrc={user}
-            //   value={inputs.accountName}
-              placeholder="Date"
-            //   onChange={onChange}
-            />
-            <div>
-              <Select
-                label="Status"
-                placeholder="Select"
-                // options={option}
-              />
-            </div>
-            <TextInput
-              name="phonenumber"
-              label="Phone Number"
-            //   imgSrc={user}
-            //   value={inputs.accountName}
-              placeholder="User"
-            //   onChange={onChange}
-            />
-            <TextInput
+    <div className="main-input-container">
+      <div>
+        <Select label="Organization" placeholder="Select" options={options} />
+      </div>
+      <TextInput
+        name="username"
+        label="Username"
+        imgSrc={shop}
+        value={value.username}
+        placeholder="User"
+        onChange={handleChange}
+      />
+      <TextInput
+        name="email"
+        label="Email"
+        imgSrc={shop}
+        value={value.email}
+        placeholder="Email"
+        onChange={handleChange}
+      />
+      <TextInput
+        name="date"
+        type="date"
+        label="Date"
+        imgSrc={shop}
+        value={value.date}
+        placeholder="Date"
+        onChange={handleChange}
+      />
+      <div>
+        <Select label="Status" placeholder="Select" options={options} />
+      </div>
+      <TextInput
+        name="phonenumber"
+        label="Phone Number"
+        type="number"
+        //   imgSrc={user}
+        value={value.phonenumber}
+        placeholder="phone Number"
+        onChange={handleChange}
+      />
+      <TextInput
               name="username"
               label="Username"
             //   imgSrc={user}
@@ -62,6 +77,6 @@ const Input = () => {
             //   onChange={onChange}
             />
     </div>
-  )
-}
-export default Input
+  );
+};
+export default Input;

@@ -1,5 +1,6 @@
 import Card from "./Card";
 import './cardList.scss'
+// import Icon from '../../assests/image/Group-icon.jpg'
 
 
 function CardList() {
