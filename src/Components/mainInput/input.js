@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Select from "../input/select";
 import TextInput from "../input/TextInput";
-import shop from "../../assests/image/shop.png";
+import date from "../../assests/image/date.png";
 import './main.scss'
 
 
@@ -34,7 +34,6 @@ const Input = () => {
       <TextInput
         name="username"
         label="Username"
-        imgSrc={shop}
         value={value.username}
         placeholder="User"
         onChange={handleChange}
@@ -42,40 +41,35 @@ const Input = () => {
       <TextInput
         name="email"
         label="Email"
-        imgSrc={shop}
         value={value.email}
         placeholder="Email"
         onChange={handleChange}
       />
       <TextInput
         name="date"
-        type="date"
+        type=""
         label="Date"
-        imgSrc={shop}
         value={value.date}
         placeholder="Date"
+        imgSrc={date}
+        onChange={handleChange}
+      />
+      
+      <TextInput
+        name="phonenumber"
+        label="Phone Number"
+        type="number"
+        value={value.phonenumber}
+        placeholder="phone Number"
         onChange={handleChange}
       />
       <div>
         <Select label="Status" placeholder="Select" options={options} />
       </div>
-      <TextInput
-        name="phonenumber"
-        label="Phone Number"
-        type="number"
-        //   imgSrc={user}
-        value={value.phonenumber}
-        placeholder="phone Number"
-        onChange={handleChange}
-      />
-      <TextInput
-              name="username"
-              label="Username"
-            //   imgSrc={user}
-            //   value={inputs.accountName}
-              placeholder="User"
-            //   onChange={onChange}
-            />
+            <div className="buttons-wrap">
+            <button className="reset">Reset</button>
+            <button className="filter">Filter</button>
+            </div>
     </div>
   );
 };

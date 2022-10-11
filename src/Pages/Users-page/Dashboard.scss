@@ -1,0 +1,33 @@
+.layout {
+  height: 1080px;
+  display: flex;
+  position: relative;
+
+  .main-content {
+    width: calc(100% - 435px);
+
+    h2 {
+      font-family: "Work Sans";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      color: #213f7d;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+    .layout{
+        justify-content:flex-start;
+        margin-top: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px)
+  {
+    .layout{
+        align-items: center;
+    }
+  }

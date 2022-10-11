@@ -126,9 +126,16 @@ const Sidebar = () => {
           },
 
       ];
-      
+      const logout = () =>{
+          localStorage.removeItem("signup")
+          window.location.reload();
+      }
+      const remove =() => {
+          localStorage.clear();
+          window.location.reload()
+      }
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <div className="top-info">
         <div className="select-wrapper">
           <select>
@@ -155,7 +162,7 @@ const Sidebar = () => {
           return (
             <div
               key={i}
-              className="link-items "
+              className={`link-items ${text === "My profile" ? "active" : ""}`}
             >
               <Icon />
               <p>{text}</p>
@@ -191,7 +198,10 @@ const Sidebar = () => {
           );
         })}
       </div>
-    </div>
+      <hr/>
+      <button onClick={logout}>Logout</button>
+      <button onClick={remove}>Delete</button>
+    </aside>
   );
 };
 

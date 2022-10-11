@@ -1,12 +1,10 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
-// import CardList from "../Components/Card/CardList";
-// import MainPage from "../Components/Main";
-// import Input from "../Components/mainInput/input";
-// import Sidebar from "../Components/SideBar";
-// import TopNav from "../Components/TopNavBar/Navbar";
-// import LoginPage from "../Pages/Login-page/Login";
-import Dashboard from "../Pages/User-dashboard/Dashboard";
+import Dashboard from "../Pages/Dashboard-page/Dashboard";
+import LoginPage from "../Pages/Login-page/Login";
+import UsersDashboard from "../Pages/Users-page/Dashboard";
+import DetailsDashboard from "../Pages/User-details-page/Users-detail";
+// import Dashboard from "../Pages/Dashboard-page/Dashboard";
 
 
 
@@ -15,6 +13,9 @@ function App () {
     <div>
       <Routes>
         <Route exact path="" element={<Dashboard/>} />
+        <Route exact path="detail" element={<DetailsDashboard/>} />
+        <Route exact path="user" element={<UsersDashboard/>} />
+        <Route exact path="login" element={<LoginPage/>} />
       </Routes>
     </div>
   );

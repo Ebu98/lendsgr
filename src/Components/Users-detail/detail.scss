@@ -1,0 +1,69 @@
+.user-detail {
+  max-width: 1037px;
+  position: absolute;
+  left: 343px;
+  margin-top: 30px;
+  width: 1037px;
+  height: 910px;
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  
+  h5{
+    width: 165px;
+    height: 19px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 20px 27px;
+    line-height: 19px;
+    white-space: nowrap;
+    color: #213F7D;
+  }
+
+  p {
+    width: 97px;
+    height: 14px;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #545f7d;
+  }
+  h4{
+    width: 152px;
+    height: 19px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: 19px;
+    color: #545F7D;
+    
+  }
+
+  .personal-info {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .marital-info {
+    display: flex;
+    margin: 0 30px;
+    gap: 50px;
+    
+    
+  }
+  .line{
+    width: 977px;
+    height: 0px;
+    opacity: 0.1;
+    border: 1px solid #213F7D;
+  }
+}

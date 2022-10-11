@@ -5,7 +5,7 @@ const TextInput = ({ label, imgSrc, error, name, ...rest }) => {
   return (
     <div className="text-input">
       <label>{label}</label>
-      <div className="input">
+      <div className="input-wrap">
         <img src={imgSrc} alt="" />
         <input type="text" name={name} {...rest} />
       </div>

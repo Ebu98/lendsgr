@@ -1,19 +1,20 @@
 import React from 'react'
 import CardList from '../../Components/Card/CardList'
-import MainPage from '../../Components/Main'
 import Sidebar from '../../Components/SideBar'
 import TopNav from '../../Components/TopNavBar/Navbar'
+import UsersPage from '../../Components/Users-page-conponent'
 import './Dashboard.scss'
 
-const Dashboard = () => {
+const UserDashboard = () => {
   return (
     <div className="layout">
-        <Sidebar position="absolute"/>
+        <Sidebar />
         <div className="main-content">
-          <TopNav position="absolute" />
+          <TopNav  />
           <div className="main-hero">
+            <h2>Users</h2>
           <CardList />
-          <MainPage />
+          <UsersPage/>
           </div>
         </div>
         
@@ -21,4 +22,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default UserDashboard
