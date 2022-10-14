@@ -6,10 +6,9 @@ const TextInput = ({ label, imgSrc, error, name, ...rest }) => {
     <div className="text-input">
       <label>{label}</label>
       <div className="input-wrap">
-        <img src={imgSrc} alt="" />
         <input type="text" name={name} {...rest} />
+        {imgSrc && <img src={imgSrc} alt="" />}
       </div>
-      {/* {error[name] && <p className="error">{error[name]}</p>} */}
     </div>
   );
 };

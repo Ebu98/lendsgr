@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import Select from "../input/select";
 import TextInput from "../input/TextInput";
 import date from "../../assests/image/date.png";
-import './main.scss'
+import "./main.scss";
 
-
-const Input = () => {
-    
+const DropdownInput = () => {
   const [value, setValue] = useState({
     username: "",
     email: "",
@@ -16,9 +14,10 @@ const Input = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValue(prevValue => ({ 
-        ...prevValue,
-         [name]: value }));
+    setValue((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
   };
 
   const options = [
@@ -28,9 +27,7 @@ const Input = () => {
 
   return (
     <div className="main-input-container">
-      <div>
-        <Select label="Organization" placeholder="Select" options={options} />
-      </div>
+      <Select label="Organization" placeholder="Select" options={options} />
       <TextInput
         name="username"
         label="Username"
@@ -54,7 +51,7 @@ const Input = () => {
         imgSrc={date}
         onChange={handleChange}
       />
-      
+
       <TextInput
         name="phonenumber"
         label="Phone Number"
@@ -63,14 +60,12 @@ const Input = () => {
         placeholder="phone Number"
         onChange={handleChange}
       />
-      <div>
-        <Select label="Status" placeholder="Select" options={options} />
+      <Select label="Status" placeholder="Select" options={options} />
+      <div className="buttons-wrap">
+        <button className="reset">Reset</button>
+        <button className="filter">Filter</button>
       </div>
-            <div className="buttons-wrap">
-            <button className="reset">Reset</button>
-            <button className="filter">Filter</button>
-            </div>
     </div>
   );
 };
-export default Input;
+export default DropdownInput;

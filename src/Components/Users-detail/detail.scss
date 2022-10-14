@@ -1,26 +1,22 @@
 .user-detail {
-  max-width: 1037px;
-  position: absolute;
-  left: 343px;
   margin-top: 30px;
-  width: 1037px;
   height: 910px;
   background: #ffffff;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
-  
-  h5{
-    width: 165px;
-    height: 19px;
-    font-family: 'Work Sans';
+  padding: 30px;
+  overflow: auto;
+
+  h5 {
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    margin: 20px 27px;
     line-height: 19px;
     white-space: nowrap;
-    color: #213F7D;
+    color: #213f7d;
+    margin-bottom: 30px;
   }
 
   p {
@@ -35,35 +31,39 @@
     text-transform: uppercase;
     color: #545f7d;
   }
-  h4{
+  h4 {
     width: 152px;
     height: 19px;
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 500;
     white-space: nowrap;
     font-size: 16px;
     line-height: 19px;
-    color: #545F7D;
-    
+    color: #545f7d;
   }
 
   .personal-info {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+    min-width: 977px;
+
+    &.education-employment {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    > div {
+      p {
+        margin-bottom: 8px;
+      }
+    }
   }
 
-  .marital-info {
-    display: flex;
-    margin: 0 30px;
-    gap: 50px;
-    
-    
-  }
-  .line{
-    width: 977px;
+  .line {
     height: 0px;
-    opacity: 0.1;
-    border: 1px solid #213F7D;
+    border-bottom: 1px solid rgba(#213f7d, 0.1);
+    margin-bottom: 30px;
   }
 }

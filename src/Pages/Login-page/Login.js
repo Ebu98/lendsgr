@@ -1,46 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as LogoIcon } from "../../assests/icon/logo.svg";
 import { ReactComponent as Image } from "../../assests/image/image.svg";
 import Button from "../../Components/Button/Button";
-import Dashboard from "../Dashboard-page/Dashboard";
 import "./Login.scss";
 
 const LoginPage = () => {
-  const email = useRef();
-  const password = useRef();
-  const [showDashboard, setShowDashboard] = useState(false);
-  const [show, setShow] = useState(false);
-  const localSignUp = localStorage.getItem("signUp");
-  const localEmail = localStorage.getItem("email");
-  const localPassword = localStorage.getItem("password");
-  useEffect(() => {
-    if (localSignUp) {
-        setShowDashboard(true);
-    }
-    if (localEmail) {
-      setShow(true);
-    }
-  }, []);
-  const handleClick = () => {
-    if ( email.current.value && password.current.value) {
-      localStorage.setItem("email", email.current.value);
-      localStorage.setItem("password", password.current.value);
-      localStorage.setItem("signUp", email.current.value);
-      alert("Account created successfully!!");
-      window.location.reload();
-    }
+  const [inputs, setInputs] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  const onChange = ({ target: { name, value } }) => {
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   };
 
-  const handleSignIn = () => {
-    if (
-      email.current.value ===localEmail &&
-      password.current.value === localPassword
-    ) {
-      localStorage.setItem("signUp", email.current.value);
-      window.location.reload();
-    } else {
-      alert("Please Enter valid Credential");
-    }
+  const handleSubmit = () => {
+    if (inputs.email && inputs.password) navigate("/");
   };
 
   return (
@@ -57,40 +34,29 @@ const LoginPage = () => {
           <p>Enter details to login.</p>
         </div>
         <div>
-          <form className="form">
-            {showDashboard ? (
-              <Dashboard />
-            ) : show ? (
-              <div className="container">
-                <div className="input_space">
-                  <input placeholder="Email" type="text" ref={email} />
-                </div>
-                <div className="input_space">
-                  <input
-                    placeholder="Password"
-                    type="password"
-                    ref={password}
-                  />
-                </div>
-                <p>Forgot PASSWORD?</p>
-                <Button onClick={handleSignIn}>Login In</Button>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="container">
+              <div className="input_space">
+                <input
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  onChange={onChange}
+                  autoComplete="on"
+                />
               </div>
-            ) : (
-              <div className="container">
-                <div className="input_space">
-                  <input placeholder="Email" type="text" ref={email} />
-                </div>
-                <div className="input_space">
-                  <input
-                    placeholder="Password"
-                    type="password"
-                    ref={password}
-                  />
-                </div>
-                
-                <Button onClick={handleClick}>Sign Up</Button>
+              <div className="input_space">
+                <input
+                  placeholder="Password"
+                  type="password"
+                  autoComplete="on"
+                  name="password"
+                  onChange={onChange}
+                />
               </div>
-            )}
+              <p>Forgot PASSWORD?</p>
+              <Button>Login In</Button>
+            </div>
           </form>
         </div>
       </div>

@@ -1,25 +1,34 @@
 import React from "react";
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from "../Pages/Dashboard-page/Dashboard";
-import LoginPage from "../Pages/Login-page/Login";
-import UsersDashboard from "../Pages/Users-page/Dashboard";
 import DetailsDashboard from "../Pages/User-details-page/Users-detail";
-// import Dashboard from "../Pages/Dashboard-page/Dashboard";
+import Layout from "../Components/layout";
+import LoginPage from "../Pages/Login-page/Login";
 
-
-
-function App () {
+function App() {
   return (
-    <div>
-      <Routes>
-        <Route exact path="" element={<Dashboard/>} />
-        <Route exact path="detail" element={<DetailsDashboard/>} />
-        <Route exact path="user" element={<UsersDashboard/>} />
-        <Route exact path="login" element={<LoginPage/>} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route exact path="/login" element={<LoginPage />} />
+      <Route
+        exact
+        path="/users"
+        element={
+          <Layout>
+            <Dashboard />
+          </Layout>
+        }
+      />
+      <Route
+        exact
+        path="/users/detail"
+        element={
+          <Layout>
+            <DetailsDashboard />
+          </Layout>
+        }
+      />
+    </Routes>
   );
-  };
-  
+}
 
 export default App;

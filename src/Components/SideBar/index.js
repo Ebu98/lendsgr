@@ -21,186 +21,156 @@ import { ReactComponent as ReportsIcon } from "../../assests/icon/report.svg";
 import { ReactComponent as PreferencesIcon } from "../../assests/icon/settings.svg";
 import { ReactComponent as FeesPriceIcon } from "../../assests/icon/pricing.svg";
 import { ReactComponent as AuditLogsIcon } from "../../assests/icon/audit.svg";
+import { ReactComponent as CaretIcon } from "../../assests/icon/caret.svg";
 import "./Sidebar.scss";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const links = [
     {
       icon: SwitchIcon,
       text: "Switch Organization",
+      isDropdown: true,
     },
     {
       icon: DashboardIcon,
       text: "Dashboard",
+      isDropdown: false,
     },
-]
-    const customers =[
-        
-        {
-            icon: UsersIcon,
-            text: "Users",
-          },
-          {
-            icon: GuarantorsIcon,
-            text: "Guarantors",
-          },
-          {
-            icon: LoansIcon,
-            text: "Loans",
-          },
-          {
-            icon: DecisionIcon,
-            text: "Decision Models",
-          },
-          {
-              icon: SavingsIcon,
-              text: "Savings",
-            },
-            {
-              icon: LoanreqIcon,
-              text: "Loan Requests",
-            },
-            {
-              icon: WhitelistIcon,
-              text: "Whitelist",
-            },
-            {
-              icon: KarmaIcon,
-              text: "Karma",
-            },
+  ];
+  const customers = [
+    {
+      icon: UsersIcon,
+      text: "Users",
+    },
+    {
+      icon: GuarantorsIcon,
+      text: "Guarantors",
+    },
+    {
+      icon: LoansIcon,
+      text: "Loans",
+    },
+    {
+      icon: DecisionIcon,
+      text: "Decision Models",
+    },
+    {
+      icon: SavingsIcon,
+      text: "Savings",
+    },
+    {
+      icon: LoanreqIcon,
+      text: "Loan Requests",
+    },
+    {
+      icon: WhitelistIcon,
+      text: "Whitelist",
+    },
+    {
+      icon: KarmaIcon,
+      text: "Karma",
+    },
+  ];
+  const businesses = [
+    {
+      icon: OrganizationIcon,
+      text: "Organization",
+    },
 
-    ]
-        const business =[
+    {
+      icon: LoanProIcon,
+      text: "Loan Products",
+    },
+    {
+      icon: SavingsProIcon,
+      text: "Savings Products",
+    },
+    {
+      icon: FeesCharIcon,
+      text: "Fees and Charges",
+    },
+    {
+      icon: TransactionsIcon,
+      text: "Transactions",
+    },
+    {
+      icon: ServicesIcon,
+      text: "Services",
+    },
+    {
+      icon: ServiceAccIcon,
+      text: "Service Account",
+    },
+    {
+      icon: SettlementsIcon,
+      text: "Settlements",
+    },
+    {
+      icon: ReportsIcon,
+      text: "Reports",
+    },
+  ];
+  const settings = [
+    {
+      icon: PreferencesIcon,
+      text: "Preferences",
+    },
+    {
+      icon: FeesPriceIcon,
+      text: "Fees and Pricing",
+    },
+    {
+      icon: AuditLogsIcon,
+      text: "Audit Logs",
+    },
+  ];
 
-            {
-                icon: OrganizationIcon,
-                text: "Organization",
-              },
-              
-              {
-                icon: LoanProIcon,
-                text: "Loan Products",
-              },
-              {
-                icon: SavingsProIcon,
-                text: "Savings Products",
-              },
-              {
-                icon: FeesCharIcon,
-                text: "Fees and Charges",
-              },
-              {
-                icon: TransactionsIcon,
-                text: "Transactions",
-              },
-              {
-                icon: ServicesIcon,
-                text: "Services",
-              },
-              {
-                icon: ServiceAccIcon,
-                text: "Service Account",
-              },
-              {
-                icon: SettlementsIcon,
-                text: "Settlements",
-              },
-              {
-                icon: ReportsIcon,
-                text: "Reports",
-              },
-        ]
-      const setting =[
-
-        {
-            icon: PreferencesIcon,
-            text: "Preferences",
-          },
-          {
-            icon: FeesPriceIcon,
-            text: "Fees and Pricing",
-          },
-          {
-            icon: AuditLogsIcon,
-            text: "Audit Logs",
-          },
-
-      ];
-      const logout = () =>{
-          localStorage.removeItem("signup")
-          window.location.reload();
-      }
-      const remove =() => {
-          localStorage.clear();
-          window.location.reload()
-      }
+  const navLinks = {
+    customers,
+    businesses,
+    settings,
+  };
+  const logout = () => {
+    localStorage.removeItem("signup");
+  };
   return (
     <aside className="sidebar">
-      <div className="top-info">
-        <div className="select-wrapper">
-          <select>
-            <option>Non -Vetted Tailor</option>
-          </select>
-        </div>
+      <div className="top-links">
+        {links.map(({ text, icon: Icon, isDropdown }) => (
+          <NavLink
+            to={`/${text.toLocaleLowerCase().replace(" ", "-")}`}
+            key={text}
+            className="link"
+          >
+            <Icon />
+            <span>{text}</span>
+            {isDropdown && <CaretIcon />}
+          </NavLink>
+        ))}
       </div>
-      <div className="links">
-        {links.map(({ text, icon: Icon }, i) => {
-          return (
-            <div
-              key={i}
-              className={`link-items ${text === "My profile" ? "active" : ""}`}
-            >
-              <Icon />
-              <p>{text}</p>
+      <div className="main-links">
+        {Object.keys(navLinks).map((key) => (
+          <div key={key} className="nav-section">
+            <h5>{key}</h5>
+            <div className="link-list">
+              {navLinks[key].map(({ text, icon: Icon }) => (
+                <NavLink
+                  to={`/${text.toLocaleLowerCase().replace(" ", "-")}`}
+                  key={text}
+                  className="link"
+                >
+                  <Icon />
+                  <span>{text}</span>
+                </NavLink>
+              ))}
             </div>
-          );
-        })}
-        </div>
-        <div className="links">
-            <p className="title">CUSTOMERS</p>
-        {customers.map(({ text, icon: Icon }, i) => {
-          return (
-            <div
-              key={i}
-              className={`link-items ${text === "My profile" ? "active" : ""}`}
-            >
-              <Icon />
-              <p>{text}</p>
-            </div>
-          );
-        })}
-        </div>
-        <div className="links">
-            <p className="title">BUSINESSES</p>
-        {business.map(({ text, icon: Icon }, i) => {
-          return (
-            <div
-              key={i}
-              className="link-items "
-            >
-              <Icon />
-              <p>{text}</p>
-            </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-      <div className="links">
-          <p className="title">SETTINGS</p>
-        {setting.map(({ text, icon: Icon }, i) => {
-          return (
-            <div
-              key={i}
-              className="link-items "
-            >
-              <Icon />
-              <p>{text}</p>
-            </div>
-          );
-        })}
+      <div className="sidebar-bottom">
+        <button onClick={logout}>Logout</button>
       </div>
-      <hr/>
-      <button onClick={logout}>Logout</button>
-      <button onClick={remove}>Delete</button>
     </aside>
   );
 };
