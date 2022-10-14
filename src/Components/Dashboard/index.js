@@ -89,7 +89,7 @@ const UsersPage = () => {
   };
   useEffect(() => {
     fetchUsers();
-  }, []);
+  });
   const titles = [
     {
       icon: DropIcon,
@@ -125,7 +125,7 @@ const UsersPage = () => {
 
   return (
     <section className="mainContents">
-      {users.length && !loading ? (
+      {users.length && !loading && errors ? (
         <div className="table-wrapper">
           <table>
             <thead>

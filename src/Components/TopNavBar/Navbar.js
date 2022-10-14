@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Search from "../input/search"
 import { ReactComponent as LogoIcon } from "../../assests/icon/logo.svg";
-// import { ReactComponent as Search } from "../../assests/icon/search.svg";
 import { ReactComponent as BellIcon } from "../../assests/icon/bell.svg";
 import photo from "../../assests/image/Ellipse 1.png";
 import Menu  from "../../assests/image/menu.png";
@@ -39,4 +38,3 @@ const TopNav = () => {
 };
 
 export default TopNav;
-{/* <i class="fa fa-times" aria-hidden="true"></i> */}
