@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import App from ".";
-import LoginPage from "../Pages/Login-page/Login";
 
 const Root = () => (
   <BrowserRouter>
